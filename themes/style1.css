@@ -1,0 +1,117 @@
+.container{
+	margin:0 auto;
+	width: 1000px;
+}
+.header{
+	margin:0 auto;
+	border:1px solid #ccc;
+	float:left;
+	height:80px;
+	width:1000px;
+	margin-bottom:5px;
+}
+.logo{
+	padding: 30px;
+	width: 200px;
+	float: left;
+}
+.header-sub{
+	float: right;
+    width: 700px;
+    text-align: right;
+    padding: 10px;
+}
+.menu{
+	float:left;
+	width:100%;
+	margin-bottom:20px;
+}
+.content{
+	margin:0 auto;
+	float:left;
+	width:1000px;
+	margin-bottom:20px;
+}
+.post{
+	float:left;
+	border:1px solid #ccc;
+	width:700px;
+	height:100%;
+}
+.sidebar{
+	float:right;
+	border:1px solid #ccc;
+	width:280px;
+	height:100%;
+}
+.sidebar-sub{
+	padding:5px;
+	margin-bottom:20px;
+	word-wrap:break-word;
+}
+.footer{
+	margin:0 auto;
+	border:1px solid #ccc;
+	float:left;
+	height:100px;
+	width:1000px;
+}
+
+/* css post */
+.post-sub{
+	padding: 5px;
+	float: left;
+    margin-bottom: 20px;
+}
+.post-img{
+	float: left;
+    padding-right: 10px;
+    width: 280px;
+}
+.post-content{
+	padding-left: 10px;
+	word-wrap: break-word;
+	float: left;
+    width: 390px;
+}
+.thumbnail{
+	width:280px;
+}
+
+/* css menu */
+.menu {
+width: 100%;
+background-color: #005555;
+}
+ 
+.menu ul {
+margin: 0; padding: 0;
+float: left;
+}
+ 
+.menu ul li {
+display: inline;
+}
+
+.menu ul li a {
+float: left; text-decoration: none;
+color: white;
+padding: 10.5px 11px;
+background-color:  #005555;
+}
+.menu ul li a:visited {
+color: white;
+}
+.menu ul li a:hover, .menu ul li .current {
+color: white;
+background-color: #5FD367;
+}
+
+/* css footer */
+.footer-sub{
+	padding:10px;
+	float: left;
+    width: 313px;
+    height: 100%;
+	word-wrap:break-word;
+}
