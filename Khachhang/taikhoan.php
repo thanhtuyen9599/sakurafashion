@@ -42,7 +42,13 @@
 		}
 		?>
 		<?php
+		if(isset($_SESSION['userName'])){
+			
+		}else {
+			header("Location:login.php");
+		}
 			$user= $_SESSION["userName"];
+			
 			include("../ConnectDb/open.php");
 			$sql = "select * from tblkhachhang where userName='$user'";
 			$result = mysqli_query($con,$sql);

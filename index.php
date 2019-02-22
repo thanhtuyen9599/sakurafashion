@@ -240,7 +240,7 @@
 		</div>
 	</section>
 		</div>
-		<div id="support-form" class="modal fade" role="dialog">
+		<div id="support-form" class="modal fade" role="dialog" style="display:none">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">

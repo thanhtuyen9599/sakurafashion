@@ -14,9 +14,9 @@
 						</li>				
 						<?php
 						if(!isset($_SESSION['userName']))
-							echo '<li><a href="../Khachhang/login.php">Đăng nhập</a></li>';
+							echo '<li><a href="Khachhang/login.php">Đăng nhập</a></li>';
 						else
-							echo '<li><a href="../Khachhang/logout.php">Đăng xuất</a></li>';
+							echo '<li><a href="logout.php">Đăng xuất</a></li>';
 						?>
 					</ul>
 				</div>
