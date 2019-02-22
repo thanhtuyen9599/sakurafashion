@@ -43,17 +43,22 @@
     <body>
         <div id="top-bar" class="container">
             <div class="row">
+                <div class="span4">
+                    <form method="POST">
+                        <input type="text" class="input-block-level search-query" placeholder="Tìm kiếm">
+                    </form>
+                </div>
                 <div class="span8">
                     <div class="account pull-right">
                         <ul class="user-menu">
-                            <li><a href="../index.php"><h5>Trang chủ</h5></a></li>               
-                            <li><a href="../giohang.php"><h5>Giỏ hàng</h5></a></li>                    
+                            <li><a href="../index.php">Trang chủ</a></li>               
+                            <li><a href="../giohang.php">Giỏ hàng</a></li>                    
                             </li>               
                             <?php
                             if(!isset($_SESSION['userName']))
-                                echo '<li><a href="login.php"><h5>Đăng nhập</h5></a></li>';
+                                echo '<li><a href="login.php">Đăng nhập</a></li>';
                             else
-                                echo '<li><a href="logout.php"><h5>Đăng xuất</h5></a></li>';
+                                echo '<li><a href="logout.php">Đăng xuất</a></li>';
                             ?>
                         </ul>
                     </div>
@@ -78,9 +83,7 @@
                     <nav id="menu" class="pull-right">
                         <ul>
                             <li><a href="trangcanhan.php">Trang cá nhân</a></li>
-                            <li><a href="quanlynsx.php">QL nhà sản xuất</a></li>
-                            <li><a href="quanlydanhmuc.php">QL danh mục</a></li>
-                            <li><a href="quanlyloaisanpham.php">QL loại sản phẩm</a></li>
+                            <li><a href="quanlyloaisanpham.php">QL loại SP</a></li>
                             <li><a href="quanlysanpham.php">QL sản phẩm</a></li>
                             <li><a href="quanlykhachhang.php">QL khách hàng</a></li>
                             <li><a href="quanlyhoadon.php">QL hóa đơn</a></li>
@@ -90,6 +93,8 @@
                             if($admin['phanQuyen']==1)
                             {
                                 echo '<li><a href="quanlyadmin.php">QL admin</a></li>';
+                                echo '<li><a href="quanlydanhmuc.php">QL danh mục</a></li>';
+                                echo '<li><a href="quanlynsx.php">QL nhà sản xuất</a></li>';
                             }
                             ?> 
                         </ul>

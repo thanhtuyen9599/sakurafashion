@@ -24,12 +24,11 @@
         <!-- global styles -->
         <link href="../themes/css/flexslider.css" rel="stylesheet"/>
         <link href="../themes/css/main.css" rel="stylesheet"/>
-        <link href="../themes/css/tablecss.css" rel="stylesheet">
 
         <!-- Button Style -->
         <!-- <link rel="stylesheet" href="../bootstrap/css/ButtonStyle.css"> -->
         <!-- Table Style -->
-        <!-- <link rel="stylesheet" href="../bootstrap/css/TableStyle.css"> -->
+        <link rel="stylesheet" href="../bootstrap/css/TableStyle.css">
         <!-- User Profile Style -->
         <!-- <link rel="stylesheet" type="text/css" href="../bootstrap/css/UserProfile.css"/> -->
         <!-- Change Password -->
@@ -57,14 +56,14 @@
                 <div class="span8">
                     <div class="account pull-right">
                         <ul class="user-menu">
-                            <li><a href="../index.php"><h5>Trang chủ</h5></a></li>               
-                            <li><a href="../giohang.php"><h5>Giỏ hàng</h5></a></li>                                       
+                            <li><a href="../Khachhang/index.php">Trang chủ</a></li>               
+                            <li><a href="../Khachhang/giohang.php">Giỏ hàng</a></li>                                       
                             </li>               
                             <?php
                             if(!isset($_SESSION['userName']))
-                                echo '<li><a href="login.php"><h5>Đăng nhập</h5></a></li>';
+                                echo '<li><a href="login.php">Đăng nhập</a></li>';
                             else
-                                echo '<li><a href="logout.php"><h5>Đăng xuất</h5></a></li>';
+                                echo '<li><a href="logout.php">Đăng xuất</a></li>';
                             ?>
                         </ul>
                     </div>
@@ -89,9 +88,7 @@
                     <nav id="menu" class="pull-right">
                         <ul>
                             <li><a href="trangcanhan.php">Trang cá nhân</a></li>
-                            <li><a href="quanlynsx.php">QL nhà sản xuất</a></li>
-                            <li><a href="quanlydanhmuc.php">QL danh mục</a></li>
-                            <li><a href="quanlyloaisanpham.php">QL loại sản phẩm</a></li>
+                            <li><a href="quanlyloaisanpham.php">QL loại SP</a></li>
                             <li><a href="quanlysanpham.php">QL sản phẩm</a></li>
                             <li><a href="quanlykhachhang.php">QL khách hàng</a></li>
                             <li><a href="quanlyhoadon.php">QL hóa đơn</a></li>
@@ -101,6 +98,8 @@
                             if($admin['phanQuyen']==1)
                             {
                                 echo '<li><a href="quanlyadmin.php">QL admin</a></li>';
+                                echo '<li><a href="quanlydanhmuc.php">QL danh mục</a></li>';
+                                echo '<li><a href="quanlynsx.php">QL nhà sản xuất</a></li>';
                             }
                             ?> 
                         </ul>
@@ -116,51 +115,43 @@
 		//b2.2:chay cau query
 			$result=mysqli_query($con,$sql);
 		?>
-			<div class="table-users">
-                <div class="header">Quản lý hỗ trợ</div>
-                 
-                <table cellspacing="0">
-        			<tr>
-            			<th style="width: 100px">ID</th>
-              	  		<th style="width: 550px">Tênkháchhàng</th>
-                        <th style="width: 250px">SĐT</th>
-                        <th style="width: 250px">Email</th>
-                        <th style="width: 250px">Tiêuđề</th>
-                        <th style="width: 550px">Nộidungcầnhỗtrợ</th>
-                		<th style="width: 350px">Ghi chú</a></th>
-            		</tr>
-               	    <?php
-        			
-        			while($hotro=mysqli_fetch_array($result))
-        			{
-        				//moi 1 ban ghi hay 1 loai sp se la 1 dong
-        			?>
-                   	 <tr>
-                    	<td><?php echo($hotro["id"]);?></td>
-                        <td><?php echo($hotro["ten"]);?></td>
-                        <td><?php echo($hotro["sdt"]);?></td>
-                        <td><?php echo($hotro["email"]);?></td>
-                        <td><?php echo($hotro["tieuDe"]);?></td>
-                        <td><?php echo($hotro["noiDung"]);?></td>
-                        <?php
-                        if($hotro["ghiChu"]==0)
-                            echo '<td><a href="traloi.php?id=' . $hotro["id"] . '">Trả lời</a></td>';
-                        else
-                            echo '<td>Đã trả lời</td>';
-                        ?>
-                    </tr>
-                    <?php	
-        			}
-        			?>
-        			<th></th>
-                    <th></th>
-        			<th></th>
-        			<th></th>
-        			<th></th>
-        			<th></th>
-        			<th style="width: 150px"> <a href="trangcanhan.php">Thoát</a></th>
-                </table>
-            </div>
+			<table border="1" cellpadding="0" cellspacing="0">
+    			<tr>
+        			<th style="width: 100px">ID</th>
+          	  		<th style="width: 550px">Tênkháchhàng</th>
+                    <th style="width: 250px">SĐT</th>
+                    <th style="width: 250px">Email</th>
+                    <th style="width: 250px">Tiêuđề</th>
+                    <th style="width: 550px">Nộidungcầnhỗtrợ</th>
+            		<th style="width: 350px">Ghi chú</a></th>
+        		</tr>
+       	 <?php
+			
+			while($hotro=mysqli_fetch_array($result))
+			{
+				//moi 1 ban ghi hay 1 loai sp se la 1 dong
+			?>
+           	 <tr>
+            	<td><?php echo($hotro["ID"]);?></td>
+                <td><?php echo($hotro["ten"]);?></td>
+                <td><?php echo($hotro["sdt"]);?></td>
+                <td><?php echo($hotro["email"]);?></td>
+                <td><?php echo($hotro["tieuDe"]);?></td>
+                <td><?php echo($hotro["noiDung"]);?></td>
+                <td><?php if ($hotro["ghiChu"]==0) echo "Chưa trả lời";
+                            else echo "Đã trả lời"; ?></td>
+            </tr>
+            <?php	
+			}
+			?>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+            <th></th>
+			<th></th>
+			<th style="width: 150px"> <a href="trangcanhan.php">Thoát</a></th>
+    </table>
    <?php
 	//b3:dong ket noi
 		include("../ConnectDb/close.php");

@@ -1,11 +1,11 @@
 <?php
-if(isset($_POST["name"])&&isset($_POST["phone"])&&isset($_POST["email"])&&isset($_POST["subject"])&&isset($_POST["content"]))
+if(isset($_GET["name"])&&isset($_GET["phone"])&&isset($_GET["email"])&&isset($_GET["subject"])&&isset($_GET["content"]))
 {
-	$name=$_POST["name"];
-	$phone=$_POST["phone"];
-	$email=$_POST["email"];
-	$subject=$_POST["subject"];
-	$content=$_POST["content"];
+	$name=$_GET["name"];
+	$phone=$_GET["phone"];
+	$email=$_GET["email"];
+	$subject=$_GET["subject"];
+	$content=$_GET["content"];
 	//tien hanh them
 	//b1:mo ket noi
 	include("../ConnectDb/open.php");

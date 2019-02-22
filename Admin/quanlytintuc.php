@@ -6,10 +6,7 @@
         header("Location:login.php");
     }
 ?>
-
-<!DOCTYPE html>
 <html lang="en">
-    <head>
         <meta charset="utf-8">
         <title>Sakurafashion</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +25,7 @@
         <!-- Button Style -->
         <!-- <link rel="stylesheet" href="../bootstrap/css/ButtonStyle.css"> -->
         <!-- Table Style -->
-        <link href="../themes/css/tablecss.css" rel="stylesheet">
+        <link rel="stylesheet" href="../bootstrap/css/TableStyle.css">
         <!-- User Profile Style -->
         <!-- <link rel="stylesheet" type="text/css" href="../bootstrap/css/UserProfile.css"/> -->
         <!-- Change Password -->
@@ -43,9 +40,7 @@
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
             <script src="js/respond.min.js"></script>
         <![endif]-->
-    </head>
-
-    <body>
+   
         <div id="top-bar" class="container">
             <div class="row">
                 <div class="span4">
@@ -56,14 +51,14 @@
                 <div class="span8">
                     <div class="account pull-right">
                         <ul class="user-menu">
-                             <li><a href="../index.php"><h5>Trang chủ</h5></a></li>               
-                            <li><a href="../giohang.php"><h5>Giỏ hàng</h5></a></li>                                       
+                            <li><a href="../Khachhang/index.php">Trang chủ</a></li>               
+                            <li><a href="../Khachhang/giohang.php">Giỏ hàng</a></li>                                      
                             </li>               
                             <?php
                             if(!isset($_SESSION['userName']))
-                                echo '<li><a href="login.php"><h5>Đăng nhập</h5></a></li>';
+                                echo '<li><a href="login.php">Đăng nhập</a></li>';
                             else
-                                echo '<li><a href="logout.php"><h5>Đăng xuất</h5></a></li>';
+                                echo '<li><a href="logout.php">Đăng xuất</a></li>';
                             ?>
                         </ul>
                     </div>
@@ -88,9 +83,7 @@
                     <nav id="menu" class="pull-right">
                         <ul>
                             <li><a href="trangcanhan.php">Trang cá nhân</a></li>
-                            <li><a href="quanlynsx.php">QL nhà sản xuất</a></li>
-                            <li><a href="quanlydanhmuc.php">QL danh mục</a></li>
-                            <li><a href="quanlyloaisanpham.php">QL loại sản phẩm</a></li>
+                            <li><a href="quanlyloaisanpham.php">QL loại SP</a></li>
                             <li><a href="quanlysanpham.php">QL sản phẩm</a></li>
                             <li><a href="quanlykhachhang.php">QL khách hàng</a></li>
                             <li><a href="quanlyhoadon.php">QL hóa đơn</a></li>
@@ -100,6 +93,8 @@
                             if($admin['phanQuyen']==1)
                             {
                                 echo '<li><a href="quanlyadmin.php">QL admin</a></li>';
+                                echo '<li><a href="quanlydanhmuc.php">QL danh mục</a></li>';
+                                echo '<li><a href="quanlynsx.php">QL nhà sản xuất</a></li>';
                             }
                             ?> 
                         </ul>
@@ -115,19 +110,16 @@
 		//b2.2:chay cau query
 			$result=mysqli_query($con,$sql);
 		?>
-			<div class="table-users">
-                <div class="header">Quản lý tin tức</div>
-                 
-                <table cellspacing="0">
+			<table border="1" cellpadding="0" cellspacing="0">
     			<tr>
         			<th style="width: 100px">ID</th>
-                    <th style="width: 150px">Ảnh</th>
-                    <th style="width: 150px">Ngày đăng bài</th>
-          	  		<th style="width: 150px">Tiêu đề</th>
-                    <th style="width: 150px">Mô tả</th>
-                    <th style="width: 750px">Nội dung</th>
+                    <th style="width: 150px">ảnh</th>
+                    <th style="width: 150px">Ngàyđăngbài</th>
+          	  		<th style="width: 150px">Tiêuđề</th>
+                    <th style="width: 150px">Môtả</th>
+                    <th style="width: 750px">Nộidung</th>
                     <th style="width: 100px"></th>
-            		<th style="width: 250px"><a href="themtintuc.php">Thêm mới</a></th>
+            		<th style="width: 250px"><a href="themtintuc.php">Thêm</a></th>
         		</tr>
        	 <?php
 			
@@ -157,11 +149,8 @@
 			<th></th>
 			<th style="width: 150px"> <a href="trangcanhan.php">Thoát</a></th>
     </table>
-</div>
-</body>
    <?php
 	//b3:dong ket noi
 		include("../ConnectDb/close.php");
 	?>
-    </html>
 	

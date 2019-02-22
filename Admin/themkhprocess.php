@@ -3,6 +3,7 @@ if(isset($_GET["txtuser"])&&isset($_GET["txtpass"])&&isset($_GET["txtanh"])&&iss
 {
 	$user=$_GET["txtuser"];
 	$pass=$_GET["txtpass"];
+	$anh=$_GET["txtanh"];
 	$ten=$_GET["txtten"];
 	$add=$_GET["txtadd"];
 	$sdt=$_GET["txtsdt"];

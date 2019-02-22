@@ -28,7 +28,7 @@
         <!-- Button Style -->
         <!-- <link rel="stylesheet" href="../bootstrap/css/ButtonStyle.css"> -->
         <!-- Table Style -->
-        <link href="../themes/css/tablecss.css" rel="stylesheet">
+        <link rel="stylesheet" href="../bootstrap/css/TableStyle.css">
         <!-- User Profile Style -->
         <!-- <link rel="stylesheet" type="text/css" href="../bootstrap/css/UserProfile.css"/> -->
         <!-- Change Password -->
@@ -56,14 +56,14 @@
                 <div class="span8">
                     <div class="account pull-right">
                         <ul class="user-menu">
-                             <li><a href="../index.php"><h5>Trang chủ</h5></a></li>               
-                            <li><a href="../giohang.php"><h5>Giỏ hàng</h5></a></li>                                    
+                             <li><a href="../Khachhang/index.php">Trang chủ</a></li>               
+                            <li><a href="../Khachhang/giohang.php">Giỏ hàng</a></li>                                    
                             </li>               
                             <?php
                             if(!isset($_SESSION['userName']))
-                                echo '<li><a href="login.php"><h5>Đăng nhập</h5></a></li>';
+                                echo '<li><a href="login.php">Đăng nhập</a></li>';
                             else
-                                echo '<li><a href="logout.php"><h5>Đăng xuất</h5></a></li>';
+                                echo '<li><a href="logout.php">Đăng xuất</a></li>';
                             ?>
                         </ul>
                     </div>
@@ -88,9 +88,7 @@
                     <nav id="menu" class="pull-right">
                         <ul>
                             <li><a href="trangcanhan.php">Trang cá nhân</a></li>
-                            <li><a href="quanlynsx.php">QL nhà sản xuất</a></li>
-                            <li><a href="quanlydanhmuc.php">QL danh mục</a></li>
-                            <li><a href="quanlyloaisanpham.php">QL loại sản phẩm</a></li>
+                            <li><a href="quanlyloaisanpham.php">QL loại SP</a></li>
                             <li><a href="quanlysanpham.php">QL sản phẩm</a></li>
                             <li><a href="quanlykhachhang.php">QL khách hàng</a></li>
                             <li><a href="quanlyhoadon.php">QL hóa đơn</a></li>
@@ -100,6 +98,8 @@
                             if($admin['phanQuyen']==1)
                             {
                                 echo '<li><a href="quanlyadmin.php">QL admin</a></li>';
+                                echo '<li><a href="quanlydanhmuc.php">QL danh mục</a></li>';
+                                echo '<li><a href="quanlynsx.php">QL nhà sản xuất</a></li>';
                             }
                             ?> 
                         </ul>
@@ -115,22 +115,19 @@
 		//b2.2:chay cau query
 			$result=mysqli_query($con,$sql);
 		?>
-			<div class="table-users">
-                <div class="header">Quản lý khách hàng</div>
-                 
-                <table cellspacing="0">
+			<table border="1" cellpadding="0" cellspacing="0">
     			<tr>
         			<th style="width: 10px">ID</th>
-          	  		<th style="width: 100px">Tênđăngnhập</th>
-            		<th style="width: 50px">Mậtkhẩu</th>
-            		<th style="width: 100px">Họvàtên</th>
+          	  		<th style="width: 100px">user</th>
+            		<th style="width: 50px">pass</th>
+            		<th style="width: 500px">Ảnhcánhân</th>
+            		<th style="width: 100px">Họtênkháchhàng</th>
             		<th style="width: 200px">_Địachỉ_nhàriêng_</th>
             		<th style="width: 10px">SĐT</th>
-            		<th style="width: 50px">Giớitính</th>
-            		<th style="width: 150px">Ngàysinh</th>
+            		<th style="width: 50px">Sex</th>
+            		<th style="width: 150px">DOB</th>
             		<th style="width: 100px">Email</th>
             		<th style="width: 10px"></th>
-                    <th style="width: 10px"></th>
             		<th style="width: 250px"><a href="themkh.php">Thêmmới</a></th>
         		</tr>
        	 <?php
@@ -143,6 +140,7 @@
             	<td><?php echo($kh["maKh"]);?></td>
                 <td><?php echo($kh["userName"]);?></td>
                 <td><?php echo($kh["passWord"]);?></td>
+                <td><?php echo '<img style="width: 70px; height: 70px" src="' . $kh["anh"] . '"/>'; ?></td>
                 <td><?php echo($kh["tenKh"]);?></td>
                 <td><?php echo($kh["diaChi"]);?></td>
                 <td><?php echo($kh["sdt"]);?></td>
@@ -150,8 +148,7 @@
                           else echo "Nam";?></td>
                 <td><?php echo($kh["ngaySinh"]);?></td>
                 <td><?php echo($kh["email"]);?></td>
-                <td><a href="khoakh.php?id=<?php echo($kh["maKh"]);?>" onclick="return confirm('Bạn có chắc muốn khóa khách hàng này không?');">Khóa</a></td>
-                <td><a href="mokhoakh.php?id=<?php echo($kh["maKh"]);?>" onclick="return confirm('Bạn có chắc muốn mở khóa khách hàng này không?');">Mở khóa</a></td>
+                <td><a href="xoakh.php?id=<?php echo($kh["maKh"]);?>" onclick="return confirm('Ban co chac chan muon xoa khong?');">Xóa</a></td>
                 <td><a href="suattkh.php?maKh=<?php echo($kh["maKh"]);?>">Sửa</a></td>
             </tr>
             <?php	
@@ -163,14 +160,13 @@
 			<th></th>
 			<th></th>
 			<th></th>
-            <th></th>
+			<th></th>
 			<th></th>
 			<th></th>
 			<th></th>
 			<th></th>
 			<th style="width: 150px"> <a href="trangcanhan.php">Thoát</a></th>
-        </table>
-    </div>
+    </table>
    <?php
 	//b3:dong ket noi
 		include("../ConnectDb/close.php");

@@ -8,12 +8,7 @@ if(isset($_POST["txtUser"])&&isset($_POST["txtPass"]))
 	$result=mysqli_query($con,"select * from tbladmin where userName='$user' and passWord='$pass'");
 	$demSoBanGhi=mysqli_num_rows($result);
 	include("../ConnectDb/close.php");
-
-	while ($admin=mysqli_fetch_array($result))
-	    $khoa = $admin['khoa'];
-
-
-	if($demSoBanGhi==0 || $khoa==1)
+	if($demSoBanGhi==0)
 	{
 		//login sai
 		header("Location:login.php?err=1");	

@@ -22,7 +22,7 @@
 		<script src="themes/js/jquery-1.7.2.min.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>				
 		<script src="themes/js/superfish.js"></script>	
-		<script src="themes/js/jquery.scrolltotop.js"></script>
+		<script src="themes/js/jquery.scrolltotopindex.js"></script>
 		<!--[if lt IE 9]>			
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 			<script src="js/respond.min.js"></script>
@@ -40,15 +40,12 @@
 			<div class="row">
 				<div class="span4">
 					<form method="POST">
-						<input type="text" class="input-block-level search-query" placeholder="Tìm kiếm">
+						<input type="text" name="txtTen" value="<?php echo($tenSp);?>" class="input-block-level search-query" placeholder="Tìm kiếm sản phẩm"/>
 					</form>
 				</div>
 				<div class="span8">
 					<div class="account pull-right">
 						<ul class="user-menu">
-											
-							
-							
 						</ul>
 					</div>
 				</div>
@@ -59,38 +56,39 @@
 				<div class="navbar-inner main-menu">				
 					<a href="index.php" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" alt=""></a>
 					<nav id="menu" class="pull-right">
-						<ul>
-							<li><a href="cart.php">Trang chủ</a></li>
-							<li><a href="./products.php">Áo</a>					
-								<ul>
-									<li><a href="./products.php">T-Shirt</a></li>
-									<li><a href="./products.php">Hoodie</a></li>
-									<li><a href="./products.php">Áo khoác</a></li>
-								</ul>
-							</li>															
-							<li><a href="./products.php">Quần</a>					
-								<ul>
-									<li><a href="./products.php">Quần jeans</a></li>
-									<li><a href="./products.php">Quần sooc</a></li>
-								</ul>
-							</li>
-							<li><a href="./products.php">Váy đầm</a>					
-								<ul>
-									<li><a href="./products.php">Váy ngắn</a></li>
-									<li><a href="./products.php">Váy yếm</a></li>
-								</ul>
-							</li>
-							<li><a href="cart.php">Giỏ hàng</a></li>
-							<li><a href="./Khachhang/tintuc.php">Tin tức</a></li>
-							<li><a data-target="#support-form" data-toggle="modal" href="#">Hỗ trợ</a></li>
-							<?php
+			<ul>
+							<li><a href="../index.php">Trang chủ</a></li>
+							<li><a href="Khachhang/taikhoan.php">Tài khoản</a></li>	
+				<li><a href="Khachhang/sanpham.php?maloai=1">Áo</a>					
+					<ul>
+						<li><a href="Khachhang/sanpham.php?loai=1">T-Shirt</a></li>
+						<li><a href="Khachhang/sanpham.php?loai=2">Hoodie</a></li>
+						<li><a href="Khachhang/sanpham.php?loai=3">Áo khoác</a></li>
+					</ul>
+				</li>															
+				<li><a href="Khachhang/sanpham.php?maloai=2">Quần</a>					
+					<ul>
+						<li><a href="Khachhang/sanpham.php?loai=4">Quần jeans</a></li>
+						<li><a href="Khachhang/sanpham.php?loai=5">Quần sooc</a></li>
+					</ul>
+				</li>
+				<li><a href="Khachhang/sanpham.php?maloai=3">Váy đầm</a>					
+					<ul>
+						<li><a href="Khachhang/sanpham.php?loai=6">Váy</a></li>
+						<li><a href="Khachhang/sanpham.php?loai=7">Váy yếm</a></li>
+					</ul>
+				</li>
+				<li><a href="Khachhang/giohang.php">Giỏ hàng</a></li>	
+				<li><a href="Khachhang/tintuc.php">Tin tức</a></li>
+				<li><a data-target="#support-form" data-toggle="modal" href="#">Hỗ trợ</a></li>
+				<?php
 							if(!isset($_SESSION['userName']))
-								echo '<li><a href="http://localhost/sakurafashion/register.php">Đăng nhập</a></li>';
+								echo '<li><a href="Khachhang/login.php">Đăng nhập</a></li>';
 							else
-								echo '<li><a href="http://localhost/sakurafashion/logout.php">Đăng xuất</a></li>';
+								echo '<li><a href="Khachhang/logout.php">Đăng xuất</a></li>';
 							?>
-						</ul>
-					</nav>
+			</ul>
+		</nav>
 				</div>
 			</section>
 			<section  class="homepage-slider" id="home-slider">
@@ -159,9 +157,9 @@
 												<li class="span3">
 													<div class="product-box">
 														<span class="sale_tag"></span>
-														<p><a href="chitietsanpham.php?maSp=<?php echo($sp['maSp']);?>"><img src=" <?php echo(ltrim(ltrim($sp['anh'], "."), "/"))?>" alt="" /></a></p>
-														<a href="chitietsanpham.php?maSp=<?php echo($sp["maSp"]);?>" class="title"><?php echo($sp['tenSp']);?></a><br/>
-														<a href="sanpham.php" class="category"> </a>
+														<p><a href="Khachhang/chitietsanpham.php?maSp=<?php echo($sp['maSp']);?>"><img src=" <?php echo(ltrim(ltrim($sp['anh'], "."), "/"))?>" alt="" /></a></p>
+														<a href="Khachhang/chitietsanpham.php?maSp=<?php echo($sp["maSp"]);?>" class="title"><?php echo($sp['tenSp']);?></a><br/>
+														<a href="Khachhang/sanpham.php" class="category"> </a>
 														<p class="price"><?php echo number_format($sp['gia']);?></p>
 													</div>
 												</li>
@@ -221,9 +219,26 @@
 					</div>
 				</div>
 			</section>
-			<?php
-				include("includes/footer_bar.php");
-			?>
+			<section id="footer-bar">
+	<div class="row">
+		<div class="span3">
+			<h4>
+				<ul class="nav">
+					<li><a href="index.php">Trang chủ</a></li>
+					<li><a href="Khachhang/giohang.php">Giỏ hàng</a></li>
+				</ul>
+			</h4>
+		</div>
+		<div class="span4">
+			<h4>Liên hệ:
+				<ul class="nav">
+					<li>Địa chỉ: 99 Lê Thanh Nghị</li>
+					<li>Số điện thoại: 0368354829</li>
+					<li><a href="https://www.facebook.com/sakurafashion.vn/">Facebook:https://www.facebook.com/sakurafashion.vn/</a></li></h4>
+				</ul>
+			</div>
+		</div>
+	</section>
 		</div>
 		<div id="support-form" class="modal fade" role="dialog">
 			<div class="modal-dialog">
@@ -233,7 +248,8 @@
 						<h4 class="modal-title"><i class="fa fa-unlock-alt"></i>Yêu cầu hỗ trợ</h4>
 					</div>
 					<div class="modal-body">
-						<form action="Admin/themhotro.php" method="post">
+						<form action="#" method="post">
+							<?php if(!isset($_SESSION['userName'])) echo '
 							<div class="form-group">
 								<input style="width: 500px" type="text" name="name" placeholder="Tên của bạn" class="form-control">
 							</div>
@@ -242,12 +258,12 @@
 							</div>
 							<div class="form-group">
 								<input style="width: 500px" type="email" name="email" placeholder="Email" class="form-control">
-							</div>
+							</div>'; ?>
 							<div class="form-group">
 								<input style="width: 500px" type="text" name="subject" placeholder="Tiêu đề" class="form-control">
 							</div>
 							<div class="form-group">
-								<textarea style="width: 500px" name="content" placeholder="Nội dung thắc mắc" rows="4" class="form-control"></textarea>
+								<textarea style="width: 500px" placeholder="Nội dung thắc mắc" rows="4" class="form-control"></textarea>
 							</div>
 							<div class="loginbox">
 								<button class="btn" type="submit">Gửi</button>
